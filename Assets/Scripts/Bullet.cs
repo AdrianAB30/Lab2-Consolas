@@ -1,13 +1,20 @@
 using UnityEngine;
+using System;
 
 public class Bullet : MonoBehaviour
 {
-    public float lifeTime = 5f; 
+    public static event Action<string> OnBulletReturned;
+
+    public float lifeTime = 5f;
+    [HideInInspector] public string poolTag; 
+
     private float timer;
+    private bool returned; 
 
     void OnEnable()
     {
-        timer = 0f; 
+        timer = 0f;
+        returned = false;
     }
 
     void Update()
@@ -15,14 +22,25 @@ public class Bullet : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= lifeTime)
         {
-            gameObject.SetActive(false);
+            ReturnToPool();
         }
     }
-    private void OnCollisionEnter(Collision collision)
+
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Zombie"))
         {
-            this.gameObject.SetActive(false);
+            ReturnToPool();
         }
+    }
+
+    private void ReturnToPool()
+    {
+        if (returned) return;
+        returned = true;
+
+        gameObject.SetActive(false);
+
+        OnBulletReturned?.Invoke(poolTag);
     }
 }
