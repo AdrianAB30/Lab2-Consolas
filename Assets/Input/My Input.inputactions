@@ -3,7 +3,7 @@
     "name": "My Input",
     "maps": [
         {
-            "name": "Tank",
+            "name": "Tank1",
             "id": "f72fd992-1028-4d54-9468-15cb57899697",
             "actions": [
                 {
@@ -31,7 +31,7 @@
             ]
         },
         {
-            "name": "Turret",
+            "name": "Turret1",
             "id": "f3840668-05c9-456e-be44-8e62cd148477",
             "actions": [
                 {
@@ -77,7 +77,95 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Tank2",
+            "id": "ce4e5f47-256e-4659-b8da-702e891d404e",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "54fd6d9e-118d-4a18-802b-5e9ce61d9c43",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6db8e268-01e2-44a8-bed2-8fa693050afc",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Turret2",
+            "id": "56bc18bd-41c9-43e6-a559-f974f68bbf74",
+            "actions": [
+                {
+                    "name": "Aiming",
+                    "type": "Value",
+                    "id": "da67d3c9-9340-45dd-a3da-2d27ddc7fe21",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "6cb1e4ab-af32-44a4-b6c3-8559baa78f8a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a1a8ee9e-bc71-4ff7-b33d-68d1a4b419f7",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aiming",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a8b7643-b4be-429c-bef0-82c74c6dbcfb",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Xbox",
+            "bindingGroup": "Xbox",
+            "devices": [
+                {
+                    "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
