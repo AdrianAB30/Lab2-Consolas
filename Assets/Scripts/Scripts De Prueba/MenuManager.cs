@@ -3,7 +3,7 @@
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject menuPanel;
-    [SerializeField] private GameObject tankPrefab;
+    [SerializeField] private GameObject[] tanks;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private EnemySpawner enemySpawner;
 
@@ -33,23 +33,28 @@ public class MenuManager : MonoBehaviour
 
         if (players == 2)
         {
-            GameObject t1 = Instantiate(tankPrefab, spawnPoints[0].position, spawnPoints[0].rotation);
-            camSetup.RegisterTankCameras(t1);
-
-            // Asignar ID al primer tanque
-            t1.GetComponent<TankPlayerAssigner>().SetTankID(1);
+            if (tanks.Length >= 1)
+            {
+                GameObject t1 = tanks[0];
+                t1.SetActive(true);
+                camSetup.RegisterTankCameras(t1);
+                t1.GetComponent<TankPlayerAssigner>().SetTankID(1);
+            }
         }
         else if (players == 4)
         {
-            GameObject t1 = Instantiate(tankPrefab, spawnPoints[0].position, spawnPoints[0].rotation);
-            GameObject t2 = Instantiate(tankPrefab, spawnPoints[1].position, spawnPoints[1].rotation);
+            if (tanks.Length >= 2)
+            {
+                GameObject t1 = tanks[0];
+                t1.SetActive(true);
+                camSetup.RegisterTankCameras(t1);
+                t1.GetComponent<TankPlayerAssigner>().SetTankID(1);
 
-            camSetup.RegisterTankCameras(t1);
-            camSetup.RegisterTankCameras(t2);
-
-            // IDs diferentes
-            t1.GetComponent<TankPlayerAssigner>().SetTankID(1);
-            t2.GetComponent<TankPlayerAssigner>().SetTankID(2);
+                GameObject t2 = tanks[1];
+                t2.SetActive(true);
+                camSetup.RegisterTankCameras(t2);
+                t2.GetComponent<TankPlayerAssigner>().SetTankID(2);
+            }
         }
 
         camSetup.ConfigureCameras(players);
