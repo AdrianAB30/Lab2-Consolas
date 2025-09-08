@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public string enemyTag = "Enemy";
+    public string enemyTag = "Zombie";
     public float spawnInterval = 10f;
     public int enemiesPerWave = 3;
     public Vector3 spawnAreaSize = new Vector3(50, 0, 50);
@@ -43,8 +43,14 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject enemyObj = PoolManager.Instance.SpawnFromPool(enemyTag, spawnPos, Quaternion.identity);
 
-            Enemy enemy = enemyObj.GetComponent<Enemy>();
-            enemy.SetTarget(tank);
+            if (enemyObj != null)
+            {
+                Enemy newEnemy = enemyObj.GetComponent<Enemy>();
+                if (newEnemy != null && tank != null)
+                {
+                    newEnemy.SetTarget(tank);
+                }
+            }
         }
     }
 }
