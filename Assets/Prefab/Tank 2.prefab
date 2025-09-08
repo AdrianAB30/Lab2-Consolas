@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4211649889380072285
 Transform:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
     m_ActionId: 6cb1e4ab-af32-44a4-b6c3-8559baa78f8a
     m_ActionName: Turret2/Shoot
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Xbox
   m_DefaultActionMap: Tank2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

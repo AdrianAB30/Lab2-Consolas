@@ -276,11 +276,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6063692}
   m_CullTransparentMesh: 1
---- !u!20 &42518885 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3107310942727669465, guid: 6284ef6cc04e46c41a126bb1f02ccc6c, type: 3}
-  m_PrefabInstance: {fileID: 100779662}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &65041771
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,11 +362,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65041771}
   m_Mesh: {fileID: 8043817872742988627, guid: 2bf66fcd2561b85488adf18673ae6433, type: 3}
---- !u!20 &68897640 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2641167216277707493, guid: 288b5858c060cdf47b7048dcdcc07754, type: 3}
-  m_PrefabInstance: {fileID: 305476018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &71876166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1265,11 +1255,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.019254874, y: 0.05481809, z: 0.02680488}
   m_Center: {x: 0.0052274554, y: -0.023009263, z: 0.00019756793}
---- !u!20 &574281133 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2181005234451114993, guid: 288b5858c060cdf47b7048dcdcc07754, type: 3}
-  m_PrefabInstance: {fileID: 305476018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &589708948
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1448,12 +1433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelPlayers: {fileID: 1686455970}
-  tank1Prefab: {fileID: 114506058440312780, guid: 6284ef6cc04e46c41a126bb1f02ccc6c, type: 3}
-  tank2Prefab: {fileID: 668815427070765202, guid: 288b5858c060cdf47b7048dcdcc07754, type: 3}
-  camTank1: {fileID: 1881390126}
-  camTurret1: {fileID: 42518885}
-  camTank2: {fileID: 574281133}
-  camTurret2: {fileID: 68897640}
 --- !u!4 &795031512
 Transform:
   m_ObjectHideFlags: 0
