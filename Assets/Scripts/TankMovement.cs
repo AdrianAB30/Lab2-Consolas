@@ -16,6 +16,7 @@ public class TankMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        
     }
 
     private void FixedUpdate()

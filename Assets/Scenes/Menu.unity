@@ -462,6 +462,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2696610305977184139, guid: 6284ef6cc04e46c41a126bb1f02ccc6c, type: 3}
+      propertyPath: moveSpeed
+      value: 33.45
+      objectReference: {fileID: 0}
     - target: {fileID: 2947735981022454027, guid: 6284ef6cc04e46c41a126bb1f02ccc6c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -469,6 +473,10 @@ PrefabInstance:
     - target: {fileID: 2947735981022454027, guid: 6284ef6cc04e46c41a126bb1f02ccc6c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603560613355513691, guid: 6284ef6cc04e46c41a126bb1f02ccc6c, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8044448330061122513, guid: 6284ef6cc04e46c41a126bb1f02ccc6c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -812,6 +820,10 @@ PrefabInstance:
     - target: {fileID: 5431677820325876047, guid: 288b5858c060cdf47b7048dcdcc07754, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660346687729152550, guid: 288b5858c060cdf47b7048dcdcc07754, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8787,7 +8799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40.409}
+  m_AnchoredPosition: {x: 0, y: -40.409058}
   m_SizeDelta: {x: 310.5304, y: 61.2923}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2113843027

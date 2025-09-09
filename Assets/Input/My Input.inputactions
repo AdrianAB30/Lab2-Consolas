@@ -256,11 +256,11 @@
     ],
     "controlSchemes": [
         {
-            "name": "Xbox",
-            "bindingGroup": "Xbox",
+            "name": "New Control Scheme",
+            "bindingGroup": "New Control Scheme",
             "devices": [
                 {
-                    "devicePath": "<XInputController>",
+                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }

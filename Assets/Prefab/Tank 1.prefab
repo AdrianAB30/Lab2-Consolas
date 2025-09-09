@@ -213,7 +213,7 @@ MonoBehaviour:
     m_ActionId: 6cb1e4ab-af32-44a4-b6c3-8559baa78f8a
     m_ActionName: Turret2/Shoot
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Xbox
+  m_DefaultControlScheme: New Control Scheme
   m_DefaultActionMap: Tank1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -1882,7 +1882,7 @@ MonoBehaviour:
     m_ActionId: 6cb1e4ab-af32-44a4-b6c3-8559baa78f8a
     m_ActionName: Turret2/Shoot
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Xbox
+  m_DefaultControlScheme: New Control Scheme
   m_DefaultActionMap: Turret1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

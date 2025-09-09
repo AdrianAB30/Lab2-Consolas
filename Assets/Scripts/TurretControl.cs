@@ -21,7 +21,8 @@ public class TurretControl : MonoBehaviour
     {
         if (context.performed)
         {
-            Shoot();
+            Shoot(); 
+            print("disparo waza");
         }
     }
 
