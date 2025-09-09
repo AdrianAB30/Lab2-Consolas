@@ -751,8 +751,8 @@ MonoBehaviour:
   maxVerticalAngle: 45
   bulletTag: Bullet
   firePoint: {fileID: 2579549558040872678}
-  bulletSpeed: 25
-  gravity: 9.81
+  bulletSpeed: 20
+  gravity: 10
   trajectoryPoints: 2
   trajectoryTimeStep: 0.1
 --- !u!1 &2640116248526062005
