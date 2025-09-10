@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class TurretControl : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class TurretControl : MonoBehaviour
     public Transform turretBase; 
     public Transform cannon; 
     public LineRenderer trajectoryLine;
+    public ParticleSystem shootPartycle;
 
     [Header("Configuración")]
     public float horizontalRotationSpeed = 100f;
@@ -40,7 +42,6 @@ public class TurretControl : MonoBehaviour
             print("Disparo realizado");
         }
     }
-
     void Update()
     {
         HandleRotation();
@@ -118,6 +119,12 @@ public class TurretControl : MonoBehaviour
 
             Vector3 initialVelocity = firePoint.forward * bulletSpeed;
             rb.AddForce(initialVelocity, ForceMode.Impulse);
+            shootPartycle.Play();
+            GameFeelManager.Instance.OnShootFeedback();
+            GameFeelManager.Instance.Rumble();
+
+            cannon.DOLocalMoveY(-0.006f, 0.1f).SetLoops(2, LoopType.Yoyo);
+
         }
     }
 

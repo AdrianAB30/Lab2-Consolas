@@ -8,14 +8,15 @@ TagManager:
   - Zombie
   - Bullet
   - Destroy
+  - Ammo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tank
   - Water
   - UI
-  - 
+  - Bala
   - 
   - 
   - 

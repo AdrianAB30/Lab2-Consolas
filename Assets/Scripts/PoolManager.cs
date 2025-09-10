@@ -125,5 +125,17 @@ public class PoolManager : MonoBehaviour
             }
         }
     }
+    public void ReloadPool(string tag)
+    {
+        if (!poolDictionary.TryGetValue(tag, out var list)) return;
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject obj = list[i];
+            obj.SetActive(false); 
+        }
+
+        usedBullets.Clear();
+    }
 
 }

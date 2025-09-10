@@ -9,6 +9,14 @@ public class TankMovement : MonoBehaviour
     private Vector2 moveInput;
     private Rigidbody rb;
 
+    private void OnEnable()
+    {
+        TankRegistry.Instance.RegisterTank(this);
+    }
+    private void OnDisable()
+    {
+        TankRegistry.Instance.UnregisterTank(this);
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

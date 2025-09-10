@@ -8,6 +8,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject panelPlayers;
 
+    private void OnEnable()
+    {
+        PowerUps.OnEffectFinished += HandlePowerUpFinished;
+    }
+    private void OnDisable()
+    {
+        PowerUps.OnEffectFinished -= HandlePowerUpFinished;
+    }
+
     private void Start()
     {
         if (panelPlayers != null)
@@ -33,5 +42,10 @@ public class GameManager : MonoBehaviour
     {
         playerCount = 4;
         SceneManager.LoadScene("Game");
+    }
+
+    private void HandlePowerUpFinished(PowerUps powerUp)
+    {
+        powerUp.gameObject.SetActive(false);
     }
 }
