@@ -1,19 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
-public class WallDestroy : MonoBehaviour
+public class DestroyAnim : MonoBehaviour
 {
-    public GameObject wallNormal;
-    public GameObject wallFractured;
+    public GameObject objectNormal;
+    public BoxCollider objectNormalCollider;
+    public GameObject objectFractured;
     public float explosionForce = 100f;
     public float explosionRadius = 3f;
 
-    public void DestroyWall()
+    public void Destroy()
     {
-        wallNormal.SetActive(false);
-        wallFractured.SetActive(true);
+        objectNormal.SetActive(false);
+        objectNormalCollider.enabled =false;
+        objectFractured.SetActive(true);
 
-        Rigidbody[] pieces = wallFractured.GetComponentsInChildren<Rigidbody>();
+        Rigidbody[] pieces = objectFractured.GetComponentsInChildren<Rigidbody>();
         for (int i = 0; i < pieces.Length; i++)
         {
             pieces[i].AddExplosionForce(explosionForce, transform.position, explosionRadius);
@@ -26,12 +28,14 @@ public class WallDestroy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            DestroyWall();
+            Destroy();
         }
     }
 
     private IEnumerator DeactivatePiecesOneByOne(Rigidbody[] pieces, float delay)
     {
+        yield return new WaitForSeconds(1f);
+
         for (int i = 0; i < pieces.Length; i++)
         {
             MeshRenderer renderer = pieces[i].GetComponent<MeshRenderer>();

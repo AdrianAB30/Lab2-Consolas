@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5239653941536097925}
   m_Layer: 0
   m_Name: Wall Container
-  m_TagString: Untagged
+  m_TagString: Destroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f34ab673590aa142bdcdb99ea74ccec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallNormal: {fileID: 5053296302567837929}
-  wallFractured: {fileID: 7605673750104870268}
+  objectNormal: {fileID: 5053296302567837929}
+  objectNormalCollider: {fileID: 5239653941536097925}
+  objectFractured: {fileID: 7605673750104870268}
   explosionForce: 800
   explosionRadius: 3
 --- !u!65 &5239653941536097925
@@ -70,8 +71,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.4316096, y: 8.827304, z: 1.6817894}
-  m_Center: {x: 0.090236425, y: 4.3880954, z: -0.020051956}
+  m_Size: {x: 5.7550106, y: 7.2507243, z: 1.6817894}
+  m_Center: {x: 0.009386063, y: 3.5998056, z: -0.020051956}
 --- !u!1 &5053296302567837929
 GameObject:
   m_ObjectHideFlags: 0

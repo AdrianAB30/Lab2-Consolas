@@ -19,7 +19,17 @@ public class PoolManager : MonoBehaviour
     public static event Action<string> OnBulletSpawned;
 
     private Dictionary<string, List<GameObject>> poolDictionary;
+    private HashSet<GameObject> usedBullets = new HashSet<GameObject>();
 
+    void OnEnable()
+    {
+        Bullet.OnBulletReturned += HandleBulletReturned;
+    }
+
+    void OnDisable()
+    {
+        Bullet.OnBulletReturned -= HandleBulletReturned;
+    }
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -54,27 +64,23 @@ public class PoolManager : MonoBehaviour
 
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
-        if (poolDictionary == null) return null;
-
-        if (!poolDictionary.TryGetValue(tag, out var list))
-        {
-            Debug.LogWarning("Pool con tag " + tag + " no existe.");
-            return null;
-        }
+        if (!poolDictionary.TryGetValue(tag, out var list)) return null;
 
         for (int i = 0; i < list.Count; i++)
         {
             GameObject obj = list[i];
-            if (!obj.activeInHierarchy)
+
+            if (!obj.activeInHierarchy && !usedBullets.Contains(obj))
             {
                 obj.transform.SetPositionAndRotation(position, rotation);
                 obj.SetActive(true);
 
-                OnBulletSpawned?.Invoke(tag); 
+                OnBulletSpawned?.Invoke(tag);
                 return obj;
             }
         }
-        return null;
+
+        return null; 
     }
 
     public int GetAvailable(string tag)
@@ -105,4 +111,19 @@ public class PoolManager : MonoBehaviour
         if (!poolDictionary.TryGetValue(tag, out var list)) return 0;
         return list.Count;
     }
+    private void HandleBulletReturned(string tag)
+    {
+        if (!poolDictionary.TryGetValue(tag, out var list)) return;
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject obj = list[i];
+            if (!obj.activeInHierarchy) 
+            {
+                usedBullets.Add(obj); 
+                break;
+            }
+        }
+    }
+
 }
