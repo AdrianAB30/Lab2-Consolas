@@ -11,11 +11,13 @@ public class TankMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        TankRegistry.Instance.RegisterTank(this);
+        if (TankRegistry.Instance != null)
+            TankRegistry.Instance.RegisterTank(this);
     }
     private void OnDisable()
     {
-        TankRegistry.Instance.UnregisterTank(this);
+        if (TankRegistry.Instance != null)
+            TankRegistry.Instance.UnregisterTank(this);
     }
     private void Awake()
     {

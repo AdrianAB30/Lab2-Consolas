@@ -14,6 +14,8 @@ public class PoolManager : MonoBehaviour
 
     public static PoolManager Instance;
 
+    public static event Action<string> OnPoolReloaded;
+
     public List<Pool> pools;
 
     public static event Action<string> OnBulletSpawned;
@@ -136,6 +138,7 @@ public class PoolManager : MonoBehaviour
         }
 
         usedBullets.Clear();
+        OnPoolReloaded?.Invoke(tag);
     }
 
 }

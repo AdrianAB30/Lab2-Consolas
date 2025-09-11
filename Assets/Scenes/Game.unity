@@ -1409,9 +1409,9 @@ MonoBehaviour:
   - {fileID: 1026062247848746214}
   - {fileID: 1026062247848746215}
   defaultShakeDuration: 0.3
-  defaultShakeStrength: {x: 2, y: 2, z: 0}
-  defaultShakeVibrato: 30
-  randomness: 90
+  defaultShakeStrength: {x: 1, y: 1, z: 0}
+  defaultShakeVibrato: 50
+  randomness: 50
   defaultLowFrequency: 1
   defaultHighFrequency: 1
   defaultVibrationDuration: 0.2

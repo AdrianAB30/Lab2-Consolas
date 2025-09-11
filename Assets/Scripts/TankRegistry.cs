@@ -7,10 +7,20 @@ public class TankRegistry : MonoBehaviour
 
     private List<TankMovement> tanks = new List<TankMovement>();
 
+
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); 
+            return;
+        }
     }
+
 
     public void RegisterTank(TankMovement tank)
     {

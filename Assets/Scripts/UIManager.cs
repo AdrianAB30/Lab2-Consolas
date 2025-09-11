@@ -10,12 +10,14 @@ public class UIManager : MonoBehaviour
     {
         PoolManager.OnBulletSpawned += HandlePoolChanged;
         Bullet.OnBulletReturned += HandlePoolChanged;
+        PoolManager.OnPoolReloaded += HandlePoolChanged;
     }
 
     private void OnDisable()
     {
         PoolManager.OnBulletSpawned -= HandlePoolChanged;
         Bullet.OnBulletReturned -= HandlePoolChanged;
+        PoolManager.OnPoolReloaded -= HandlePoolChanged;
     }
 
     void Start()

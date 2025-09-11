@@ -21,7 +21,7 @@ public class DestroyAnim : MonoBehaviour
             pieces[i].AddExplosionForce(explosionForce, transform.position, explosionRadius);
         }
 
-        StartCoroutine(DeactivatePiecesOneByOne(pieces, 0.2f)); 
+        StartCoroutine(DeactivatePiecesOneByOne(pieces, 0.1f)); 
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -34,7 +34,7 @@ public class DestroyAnim : MonoBehaviour
 
     private IEnumerator DeactivatePiecesOneByOne(Rigidbody[] pieces, float delay)
     {
-        yield return new WaitForSeconds(1f);
+        yield return null;
 
         for (int i = 0; i < pieces.Length; i++)
         {

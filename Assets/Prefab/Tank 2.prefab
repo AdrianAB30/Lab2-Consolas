@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450282380304002976}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00001, y: -0.00288, z: 0.00126}
+  m_LocalRotation: {x: 0.8191521, y: -0, z: -0, w: 0.57357645}
+  m_LocalPosition: {x: -0.00007947263, y: -0.00332, z: 0.00111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -235,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 1278836412970391344}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0004197827, y: 0.00125, z: 0.00572}
+  m_LocalPosition: {x: 0.00041978311, y: 0.0012500046, z: 0.005719995}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -771,8 +771,8 @@ MonoBehaviour:
   shootPartycle: {fileID: 1833968887857772855}
   horizontalRotationSpeed: 100
   verticalRotationSpeed: 100
-  minVerticalAngle: -10
-  maxVerticalAngle: 45
+  minVerticalAngle: -50
+  maxVerticalAngle: 20
   bulletTag: Bullet
   firePoint: {fileID: 2579549558040872678}
   bulletSpeed: 30
@@ -881,7 +881,7 @@ Transform:
   m_GameObject: {fileID: 2691531431295867878}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0004400003, y: 0.018639995, z: 0.010789995}
+  m_LocalPosition: {x: 0.0004400007, y: 0.018639982, z: 0.010789995}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2222,7 +2222,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b8cf87cbb0d99cd4ab94e1f271244223, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2248,19 +2248,28 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.88679314
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9888268
+        value: 0.012578607
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -2274,7 +2283,7 @@ LineRenderer:
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
+      ctime0: 34502
       ctime1: 65535
       ctime2: 0
       ctime3: 0
@@ -2290,7 +2299,7 @@ LineRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
+      m_Mode: 1
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2

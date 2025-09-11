@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
         returned = false;
         if (coll != null) coll.isTrigger = true;
 
-        StartCoroutine(Delay(0.3f));
+        StartCoroutine(Delay(0.15f));
     }
     private void ReturnToPool()
     {

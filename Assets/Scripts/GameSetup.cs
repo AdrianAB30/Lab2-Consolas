@@ -33,7 +33,6 @@ public class GameSetup : MonoBehaviour
             SetupFourPlayers(devices);
         }
     }
-
     private void SetupTwoPlayers(Gamepad[] devices)
     {
         tank1.SetActive(true);
@@ -45,30 +44,30 @@ public class GameSetup : MonoBehaviour
         camTank2.gameObject.SetActive(false);
         camTurret2.gameObject.SetActive(false);
 
-        inputTank1.enabled = false;
-        inputTurret1.enabled = false;
-        inputTank2.enabled = false;
-        inputTurret2.enabled = false;
-
         inputTank1.enabled = true;
         inputTurret1.enabled = true;
+        inputTank2.enabled = false;
+        inputTurret2.enabled = false;
 
         inputTank1.SwitchCurrentActionMap("Tank1");
         inputTurret1.SwitchCurrentActionMap("Turret1");
 
         if (devices.Length >= 2)
         {
-            AssignSingleDevice(inputTank1, devices[0]);
-            AssignSingleDevice(inputTurret1, devices[1]);
+            AssignDevice(inputTank1, devices[0]);
+            AssignDevice(inputTurret1, devices[1]);
 
-            Debug.Log($"Tank1: {devices[0].name}");
-            Debug.Log($"Turret1: {devices[1].name}");
+            Debug.Log($"Tank1 -> {devices[0].name}");
+            Debug.Log($"Turret1 -> {devices[1].name}");
         }
         else
         {
-            Debug.LogError("Se necesitan al menos 2 mandos para 2 jugadores");
-            inputTank1.enabled = false;
-            inputTurret1.enabled = false;
+            Debug.Log("Usando teclado para Tank1 y gamepad para Turret1");
+
+            AssignDevice(inputTank1, Keyboard.current);
+
+            if (devices.Length >= 1)
+                AssignDevice(inputTurret1, devices[0]);
         }
     }
 
@@ -85,11 +84,6 @@ public class GameSetup : MonoBehaviour
         camTank2.gameObject.SetActive(true);
         camTurret2.gameObject.SetActive(true);
 
-        inputTank1.enabled = false;
-        inputTurret1.enabled = false;
-        inputTank2.enabled = false;
-        inputTurret2.enabled = false;
-
         inputTank1.enabled = true;
         inputTurret1.enabled = true;
         inputTank2.enabled = true;
@@ -102,26 +96,30 @@ public class GameSetup : MonoBehaviour
 
         if (devices.Length >= 4)
         {
-            AssignSingleDevice(inputTank1, devices[0]);
-            AssignSingleDevice(inputTurret1, devices[1]);
-            AssignSingleDevice(inputTank2, devices[2]);
-            AssignSingleDevice(inputTurret2, devices[3]);
+            AssignDevice(inputTank1, devices[0]);
+            AssignDevice(inputTurret1, devices[1]);
+            AssignDevice(inputTank2, devices[2]);
+            AssignDevice(inputTurret2, devices[3]);
         }
         else
         {
-            Debug.LogError("Se necesitan 4 mandos para 4 jugadores");
-            inputTank1.enabled = false;
-            inputTurret1.enabled = false;
-            inputTank2.enabled = false;
-            inputTurret2.enabled = false;
+            Debug.LogWarning("Menos de 4 mandos detectados. Se asignarán teclado y mandos mezclados.");
+
+            AssignDevice(inputTank1, Keyboard.current);
+
+            if (devices.Length > 0) AssignDevice(inputTurret1, devices[0]);
+            if (devices.Length > 1) AssignDevice(inputTank2, devices[1]);
+            if (devices.Length > 2) AssignDevice(inputTurret2, devices[2]);
         }
     }
 
-    private void AssignSingleDevice(PlayerInput playerInput, InputDevice device)
+    private void AssignDevice(PlayerInput playerInput, InputDevice device)
     {
-        playerInput.user.UnpairDevices();
+        if (device == null) return;
 
+        playerInput.user.UnpairDevices();
         InputUser.PerformPairingWithDevice(device, playerInput.user);
 
+        Debug.Log($"Asignado {device.displayName} a {playerInput.gameObject.name}");
     }
 }
