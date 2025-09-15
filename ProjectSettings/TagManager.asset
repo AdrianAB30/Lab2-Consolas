@@ -9,6 +9,8 @@ TagManager:
   - Bullet
   - Destroy
   - Ammo
+  - Speed
+  - Freeze
   layers:
   - Default
   - TransparentFX

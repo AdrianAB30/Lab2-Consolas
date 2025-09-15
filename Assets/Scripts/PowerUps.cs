@@ -7,7 +7,9 @@ public class PowerUps : MonoBehaviour
 {
     [SerializeField] private PowerUpData powerUpData;
 
+    public static event Action<float> OnPowerUpTimerStarted;
     public static event Action<PowerUps> OnEffectFinished;
+
     private void OnTriggerEnter(Collider other)
     {
         TurretControl turret = other.GetComponentInChildren<TurretControl>();
@@ -33,6 +35,7 @@ public class PowerUps : MonoBehaviour
                     PoolManager.Instance.ReloadPool(turret.bulletTag);
                     Debug.Log("Munición recargada para " + turret.name);
                 }
+                OnPowerUpTimerStarted?.Invoke(0);
                 OnEffectFinished?.Invoke(this);
                 break;
 
