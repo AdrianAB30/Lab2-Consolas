@@ -6,6 +6,7 @@ using System;
 public class PowerUps : MonoBehaviour
 {
     [SerializeField] private PowerUpData powerUpData;
+    [HideInInspector] public string poolTag;
 
     public static event Action<float> OnPowerUpTimerStarted;
     public static event Action<PowerUps> OnEffectFinished;

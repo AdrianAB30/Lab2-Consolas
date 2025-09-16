@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
 
@@ -10,15 +10,16 @@ public class PoolManager : MonoBehaviour
         public string tag;
         public GameObject prefab;
         public int size = 10;
+        public bool isBullet;
     }
 
     public static PoolManager Instance;
 
     public static event Action<string> OnPoolReloaded;
+    public static event Action<string> OnBulletSpawned;
+    public static event Action<string> OnPowerUpSpawned; // <- NUEVO evento para powerups
 
     public List<Pool> pools;
-
-    public static event Action<string> OnBulletSpawned;
 
     private Dictionary<string, List<GameObject>> poolDictionary;
     private HashSet<GameObject> usedBullets = new HashSet<GameObject>();
@@ -32,6 +33,7 @@ public class PoolManager : MonoBehaviour
     {
         Bullet.OnBulletReturned -= HandleBulletReturned;
     }
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -50,10 +52,15 @@ public class PoolManager : MonoBehaviour
             {
                 GameObject obj = Instantiate(pool.prefab, transform);
 
-                var bulletComp = obj.GetComponent<Bullet>();
-                if (bulletComp != null)
+                if (pool.isBullet)
                 {
-                    bulletComp.poolTag = pool.tag;
+                    var bulletComp = obj.GetComponent<Bullet>();
+                    if (bulletComp != null) bulletComp.poolTag = pool.tag;
+                }
+                else
+                {
+                    var powerUpComp = obj.GetComponent<PowerUps>();
+                    if (powerUpComp != null) powerUpComp.poolTag = pool.tag;
                 }
 
                 obj.SetActive(false);
@@ -72,17 +79,27 @@ public class PoolManager : MonoBehaviour
         {
             GameObject obj = list[i];
 
-            if (!obj.activeInHierarchy && !usedBullets.Contains(obj))
+            if (!obj.activeInHierarchy)
             {
+                position.y += 1f;
+
                 obj.transform.SetPositionAndRotation(position, rotation);
                 obj.SetActive(true);
 
-                OnBulletSpawned?.Invoke(tag);
+                if (obj.GetComponent<Bullet>() != null)
+                {
+                    OnBulletSpawned?.Invoke(tag);
+                }
+                else if (obj.GetComponent<PowerUps>() != null)
+                {
+                    OnPowerUpSpawned?.Invoke(tag); 
+                }
+
                 return obj;
             }
         }
 
-        return null; 
+        return null;
     }
 
     public int GetAvailable(string tag)
@@ -113,6 +130,7 @@ public class PoolManager : MonoBehaviour
         if (!poolDictionary.TryGetValue(tag, out var list)) return 0;
         return list.Count;
     }
+
     private void HandleBulletReturned(string tag)
     {
         if (!poolDictionary.TryGetValue(tag, out var list)) return;
@@ -120,13 +138,14 @@ public class PoolManager : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             GameObject obj = list[i];
-            if (!obj.activeInHierarchy) 
+            if (!obj.activeInHierarchy)
             {
-                usedBullets.Add(obj); 
+                usedBullets.Add(obj);
                 break;
             }
         }
     }
+
     public void ReloadPool(string tag)
     {
         if (!poolDictionary.TryGetValue(tag, out var list)) return;
@@ -134,11 +153,10 @@ public class PoolManager : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             GameObject obj = list[i];
-            obj.SetActive(false); 
+            obj.SetActive(false);
         }
 
         usedBullets.Clear();
         OnPoolReloaded?.Invoke(tag);
     }
-
 }

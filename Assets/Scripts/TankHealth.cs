@@ -28,7 +28,6 @@ public class TankHealth : MonoBehaviour
 
     void Die()
     {
-        // Destruir el tanque o desactivarlo
         gameObject.SetActive(false);
     }
 
@@ -37,7 +36,7 @@ public class TankHealth : MonoBehaviour
         if (healthBarPrefab != null)
         {
             healthBarInstance = Instantiate(healthBarPrefab, transform);
-            healthBarInstance.transform.localPosition = new Vector3(0, 2.5f, 0); // Ajusta la altura sobre la cabeza
+            healthBarInstance.transform.localPosition = new Vector3(0, 2.5f, 0); 
             healthBarFill = healthBarInstance.GetComponentInChildren<Image>();
             UpdateHealthBar();
         }

@@ -2545,7 +2545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &645377584
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2560,11 +2560,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 764396570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.1395, y: -2.9805}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 234.2791, y: 55.961}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &645377585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2952,8 +2952,8 @@ MonoBehaviour:
   - {fileID: 2015097726}
   - {fileID: 909268887}
   - {fileID: 766481115}
-  minSpawnTime: 10
-  maxSpawnTime: 20
+  minSpawnTime: 5
+  maxSpawnTime: 10
 --- !u!4 &785122666
 Transform:
   m_ObjectHideFlags: 0
@@ -4010,7 +4010,7 @@ MonoBehaviour:
   - {fileID: 1202891127}
   - {fileID: 1000409323}
   bulletTag: Bullet
-  powerUpTimerTxt: {fileID: 0}
+  powerUpTimerTxt: {fileID: 645377585}
 --- !u!4 &1059430638
 Transform:
   m_ObjectHideFlags: 0
@@ -4183,9 +4183,23 @@ MonoBehaviour:
   - tag: Zombie
     prefab: {fileID: 7074155974862942427, guid: 1e6df243567838345852c718f5699b2f, type: 3}
     size: 10
+    isBullet: 0
   - tag: Bullet
     prefab: {fileID: 34450692286466518, guid: a0662bf52ae1a5740bdf2b8cd0aac850, type: 3}
     size: 10
+    isBullet: 0
+  - tag: Ammo
+    prefab: {fileID: 7852540272031971775, guid: 763859b331a99cb4f80b9909513f7faa, type: 3}
+    size: 1
+    isBullet: 0
+  - tag: Speed
+    prefab: {fileID: 4908929232347699463, guid: 38578c5a4ec4b7a42b2cafab08854c39, type: 3}
+    size: 1
+    isBullet: 0
+  - tag: Freeze
+    prefab: {fileID: 6575238104312433048, guid: 46910f7e3f644b24881ebda959bd025e, type: 3}
+    size: 1
+    isBullet: 0
 --- !u!4 &1109786442
 Transform:
   m_ObjectHideFlags: 0

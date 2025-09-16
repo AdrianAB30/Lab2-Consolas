@@ -41,14 +41,14 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(time);
         if (coll != null) coll.isTrigger = false;
     }
-    
-      private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        TankHealth tankHealth = collision.gameObject.GetComponent<TankHealth>();
+        if (tankHealth != null)
         {
-            TankHealth tankHealth = other.GetComponent<TankHealth>();
-            if (tankHealth != null)
-            {
-                tankHealth.TakeDamage(25f); // Daño fijo, puedes ajustar
-                ReturnToPool();
-            }
+            tankHealth.TakeDamage(25f);
+            ReturnToPool();
         }
+    }
 }

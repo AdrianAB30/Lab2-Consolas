@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8660346687729152550}
   - component: {fileID: 4124446510325341617}
   - component: {fileID: 6535073257248101576}
+  - component: {fileID: 6961463072618903809}
   m_Layer: 3
   m_Name: Tank 2
   m_TagString: Untagged
@@ -208,6 +209,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.4537303, z: 1.7259624}
   m_Center: {x: 0, y: 0.12250686, z: 0.02722168}
+--- !u!114 &6961463072618903809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668815427070765202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5c54f2f15ef8b4cb6c770f6805faba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBarPrefab: {fileID: 6181488310747297863}
 --- !u!1 &1278836412970391344
 GameObject:
   m_ObjectHideFlags: 0
