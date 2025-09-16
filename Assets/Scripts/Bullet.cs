@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     {
         coll = GetComponent<Collider>();
         if (coll == null)
-            coll = gameObject.AddComponent<SphereCollider>(); 
+            coll = gameObject.AddComponent<SphereCollider>();
     }
 
     void OnEnable()
@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
 
         StartCoroutine(Delay(0.15f));
     }
+
     private void ReturnToPool()
     {
         if (returned) return;
@@ -34,9 +35,20 @@ public class Bullet : MonoBehaviour
 
         OnBulletReturned?.Invoke(poolTag);
     }
+
     private IEnumerator Delay(float time)
     {
         yield return new WaitForSeconds(time);
         if (coll != null) coll.isTrigger = false;
     }
+    
+      private void OnTriggerEnter(Collider other)
+        {
+            TankHealth tankHealth = other.GetComponent<TankHealth>();
+            if (tankHealth != null)
+            {
+                tankHealth.TakeDamage(25f); // Daño fijo, puedes ajustar
+                ReturnToPool();
+            }
+        }
 }

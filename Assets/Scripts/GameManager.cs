@@ -44,6 +44,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void PVP()
+    {
+        playerCount = 4;
+        SceneManager.LoadScene("PVP");
+    }
+
     private void HandlePowerUpFinished(PowerUps powerUp)
     {
         powerUp.gameObject.SetActive(false);
